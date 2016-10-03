@@ -23,6 +23,7 @@ namespace SharpKit.ExtendedClr.Compilation
 
     }
 
+    [JsType(Export = false)]
     internal class JsCompilerFunction : JsFunction
     {
         public JsType _type;
@@ -31,6 +32,7 @@ namespace SharpKit.ExtendedClr.Compilation
         public string name=null;
     }
 
+    [JsType(Export = false)]
     internal class JsCompilerObject2 : JsObject
     {
         public string getTypeName()
@@ -38,6 +40,8 @@ namespace SharpKit.ExtendedClr.Compilation
             throw new NotImplementedException();
         }
     }
+
+    [JsType(Export = false)]
     internal class JsCompilerPrototype : JsObject
     {
         public new JsCompilerFunction toString;
@@ -56,19 +60,6 @@ namespace SharpKit.ExtendedClr.Compilation
     [JsType(JsMode.Global, Export = false)]
     public class BrowserContext : JsContextBase
     {
-        protected static BrowserWindow window { get; set; }
+        protected static JsObject window { get; set; }
     }
-    [JsType(JsMode.Prototype, Export = false)]
-    public class BrowserWindow
-    {
-        public void setTimeout(JsAction callback, JsNumber ms)
-        {
-        }
-
-        internal BrowserWindow open(string url, string p, string p_2)
-        {
-            throw new NotImplementedException();
-        }
-    }
-
 }

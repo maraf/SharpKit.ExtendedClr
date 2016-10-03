@@ -700,64 +700,6 @@ var SharpKit$ExtendedClr$Compilation$Extensions = {
     IsAbstract: true
 };
 JsTypes.push(SharpKit$ExtendedClr$Compilation$Extensions);
-var SharpKit$ExtendedClr$Compilation$JsCompilerFunction = {
-    fullname: "SharpKit.ExtendedClr.Compilation.JsCompilerFunction",
-    baseTypeName: "Function",
-    assemblyName: "SharpKit.ExtendedClr.Compilation",
-    Kind: "Class",
-    definition: {
-        ctor: function (){
-            this._type = null;
-            this._name = null;
-            this.name = null;
-        }
-    },
-    ctors: [{
-        name: "ctor",
-        parameters: []
-    }
-    ],
-    IsAbstract: false
-};
-JsTypes.push(SharpKit$ExtendedClr$Compilation$JsCompilerFunction);
-var SharpKit$ExtendedClr$Compilation$JsCompilerObject2 = {
-    fullname: "SharpKit.ExtendedClr.Compilation.JsCompilerObject2",
-    baseTypeName: "Object",
-    assemblyName: "SharpKit.ExtendedClr.Compilation",
-    Kind: "Class",
-    definition: {
-        ctor: function (){
-        },
-        getTypeName: function (){
-            throw $CreateException(new System.NotImplementedException.ctor(), new Error());
-        }
-    },
-    ctors: [{
-        name: "ctor",
-        parameters: []
-    }
-    ],
-    IsAbstract: false
-};
-JsTypes.push(SharpKit$ExtendedClr$Compilation$JsCompilerObject2);
-var SharpKit$ExtendedClr$Compilation$JsCompilerPrototype = {
-    fullname: "SharpKit.ExtendedClr.Compilation.JsCompilerPrototype",
-    baseTypeName: "Object",
-    assemblyName: "SharpKit.ExtendedClr.Compilation",
-    Kind: "Class",
-    definition: {
-        ctor: function (){
-            this.toString = null;
-        }
-    },
-    ctors: [{
-        name: "ctor",
-        parameters: []
-    }
-    ],
-    IsAbstract: false
-};
-JsTypes.push(SharpKit$ExtendedClr$Compilation$JsCompilerPrototype);
 var SharpKit$JavaScript$JsNamingHelper = {
     fullname: "SharpKit.JavaScript.JsNamingHelper",
     baseTypeName: "System.Object",
@@ -845,6 +787,9 @@ var JsRuntime = function (){
 };
 JsRuntime.Start = function (){
     Compile();
+};
+JsRuntime.prototype.get_Types = function (){
+    return SharpKit.ExtendedClr.Compilation.JsCompiler.Types;
 };
 var JsTypeHelper = function (){
 };

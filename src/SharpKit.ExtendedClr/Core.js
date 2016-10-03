@@ -3800,27 +3800,27 @@ AfterCompilation(function()
 	System.IO.Path.ctor();
 });
 
-var System$IO$JsImplPath = {
-    fullname: "System.IO.JsImplPath",
+var System$IO$Path = {
+    fullname: "System.IO.Path",
     baseTypeName: "System.Object",
     staticDefinition: {
         cctor: function (){
-            System.IO.JsImplPath.AltDirectorySeparatorChar = "/";
-            System.IO.JsImplPath.DirectorySeparatorChar = "\\";
-            System.IO.JsImplPath.InvalidFileNameChars = ["\"", "<", ">", "|", "\0", "", "", "", "", "", "", "", "", "\t", "\n", "", "", "\r", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ":", "*", "?", "\\", "/"];
-            System.IO.JsImplPath.InvalidPathChars = ["\"", "<", ">", "|", "\0", "", "", "", "", "", "", "", "", "\t", "\n", "", "", "\r", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""];
-            System.IO.JsImplPath.MAX_DIRECTORY_PATH = 248;
-            System.IO.JsImplPath.MAX_PATH = 260;
-            System.IO.JsImplPath.MaxPath = 260;
-            System.IO.JsImplPath.PathSeparator = ";";
-            System.IO.JsImplPath.RealInvalidPathChars = ["\"", "<", ">", "|", "\0", "", "", "", "", "", "", "", "", "\t", "\n", "", "", "\r", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""];
-            System.IO.JsImplPath.VolumeSeparatorChar = ":";
+            System.IO.Path.AltDirectorySeparatorChar = "/";
+            System.IO.Path.DirectorySeparatorChar = "\\";
+            System.IO.Path.InvalidFileNameChars = ["\"", "<", ">", "|", "\0", "", "", "", "", "", "", "", "", "\t", "\n", "", "", "\r", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ":", "*", "?", "\\", "/"];
+            System.IO.Path.InvalidPathChars = ["\"", "<", ">", "|", "\0", "", "", "", "", "", "", "", "", "\t", "\n", "", "", "\r", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""];
+            System.IO.Path.MAX_DIRECTORY_PATH = 248;
+            System.IO.Path.MAX_PATH = 260;
+            System.IO.Path.MaxPath = 260;
+            System.IO.Path.PathSeparator = ";";
+            System.IO.Path.RealInvalidPathChars = ["\"", "<", ">", "|", "\0", "", "", "", "", "", "", "", "", "\t", "\n", "", "", "\r", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""];
+            System.IO.Path.VolumeSeparatorChar = ":";
         },
         ChangeExtension: function (path, extension){
             if (path == null){
                 return null;
             }
-            System.IO.JsImplPath.CheckInvalidPathChars(path);
+            System.IO.Path.CheckInvalidPathChars(path);
             var str = path;
             var length = path.length;
             while (--length >= 0){
@@ -3829,7 +3829,7 @@ var System$IO$JsImplPath = {
                     str = path.substr(0, length);
                     break;
                 }
-                if (((ch == System.IO.JsImplPath.DirectorySeparatorChar) || (ch == System.IO.JsImplPath.AltDirectorySeparatorChar)) || (ch == System.IO.JsImplPath.VolumeSeparatorChar)){
+                if (((ch == System.IO.Path.DirectorySeparatorChar) || (ch == System.IO.Path.AltDirectorySeparatorChar)) || (ch == System.IO.Path.VolumeSeparatorChar)){
                     break;
                 }
             }
@@ -3870,7 +3870,7 @@ var System$IO$JsImplPath = {
                 if ((num + 2) == searchPattern.length){
                     throw $CreateException(new System.ArgumentException.ctor$$String(System.Environment.GetResourceString("Arg_InvalidSearchPattern")), new Error());
                 }
-                if ((searchPattern.charAt(num + 2) == System.IO.JsImplPath.DirectorySeparatorChar) || (searchPattern.charAt(num + 2) == System.IO.JsImplPath.AltDirectorySeparatorChar)){
+                if ((searchPattern.charAt(num + 2) == System.IO.Path.DirectorySeparatorChar) || (searchPattern.charAt(num + 2) == System.IO.Path.AltDirectorySeparatorChar)){
                     throw $CreateException(new System.ArgumentException.ctor$$String(System.Environment.GetResourceString("Arg_InvalidSearchPattern")), new Error());
                 }
                 searchPattern = searchPattern.substr(num + 2);
@@ -3880,37 +3880,33 @@ var System$IO$JsImplPath = {
             if ((path1 == null) || (path2 == null)){
                 throw $CreateException(new System.ArgumentNullException.ctor$$String((path1 == null) ? "path1" : "path2"), new Error());
             }
-            System.IO.JsImplPath.CheckInvalidPathChars(path1);
-            System.IO.JsImplPath.CheckInvalidPathChars(path2);
+            System.IO.Path.CheckInvalidPathChars(path1);
+            System.IO.Path.CheckInvalidPathChars(path2);
             if (path2.length == 0){
                 return path1;
             }
             if (path1.length == 0){
                 return path2;
             }
-            if (System.IO.JsImplPath.IsPathRooted(path2)){
+            if (System.IO.Path.IsPathRooted(path2)){
                 return path2;
             }
             var ch = path1.charAt(path1.length - 1);
-            if (((ch != System.IO.JsImplPath.DirectorySeparatorChar) && (ch != System.IO.JsImplPath.AltDirectorySeparatorChar)) && (ch != System.IO.JsImplPath.VolumeSeparatorChar)){
-                return (path1 + System.IO.JsImplPath.DirectorySeparatorChar + path2);
+            if (((ch != System.IO.Path.DirectorySeparatorChar) && (ch != System.IO.Path.AltDirectorySeparatorChar)) && (ch != System.IO.Path.VolumeSeparatorChar)){
+                return (path1 + System.IO.Path.DirectorySeparatorChar + path2);
             }
             return (path1 + path2);
         },
-        FixupPath: function (path){
-            return System.IO.JsImplPath.NormalizePath(path, false);
-        },
         GetDirectoryName: function (path){
             if (path != null){
-                System.IO.JsImplPath.CheckInvalidPathChars(path);
-                path = System.IO.JsImplPath.FixupPath(path);
-                var rootLength = System.IO.JsImplPath.GetRootLength(path);
+                System.IO.Path.CheckInvalidPathChars(path);
+                var rootLength = System.IO.Path.GetRootLength(path);
                 if (path.length > rootLength){
                     var length = path.length;
                     if (length == rootLength){
                         return null;
                     }
-                    while (((length > rootLength) && (path.charAt(--length) != System.IO.JsImplPath.DirectorySeparatorChar)) && (path.charAt(length) != System.IO.JsImplPath.AltDirectorySeparatorChar)){
+                    while (((length > rootLength) && (path.charAt(--length) != System.IO.Path.DirectorySeparatorChar)) && (path.charAt(length) != System.IO.Path.AltDirectorySeparatorChar)){
                     }
                     return path.substr(0, length);
                 }
@@ -3921,7 +3917,7 @@ var System$IO$JsImplPath = {
             if (path == null){
                 return null;
             }
-            System.IO.JsImplPath.CheckInvalidPathChars(path);
+            System.IO.Path.CheckInvalidPathChars(path);
             var length = path.length;
             var startIndex = length;
             while (--startIndex >= 0){
@@ -3932,7 +3928,7 @@ var System$IO$JsImplPath = {
                     }
                     return System.String.Empty;
                 }
-                if (((ch == System.IO.JsImplPath.DirectorySeparatorChar) || (ch == System.IO.JsImplPath.AltDirectorySeparatorChar)) || (ch == System.IO.JsImplPath.VolumeSeparatorChar)){
+                if (((ch == System.IO.Path.DirectorySeparatorChar) || (ch == System.IO.Path.AltDirectorySeparatorChar)) || (ch == System.IO.Path.VolumeSeparatorChar)){
                     break;
                 }
             }
@@ -3940,12 +3936,12 @@ var System$IO$JsImplPath = {
         },
         GetFileName: function (path){
             if (path != null){
-                System.IO.JsImplPath.CheckInvalidPathChars(path);
+                System.IO.Path.CheckInvalidPathChars(path);
                 var length = path.length;
                 var num2 = length;
                 while (--num2 >= 0){
                     var ch = path.charAt(num2);
-                    if (((ch == System.IO.JsImplPath.DirectorySeparatorChar) || (ch == System.IO.JsImplPath.AltDirectorySeparatorChar)) || (ch == System.IO.JsImplPath.VolumeSeparatorChar)){
+                    if (((ch == System.IO.Path.DirectorySeparatorChar) || (ch == System.IO.Path.AltDirectorySeparatorChar)) || (ch == System.IO.Path.VolumeSeparatorChar)){
                         return path.substr(num2 + 1, (length - num2) - 1);
                     }
                 }
@@ -3953,7 +3949,7 @@ var System$IO$JsImplPath = {
             return path;
         },
         GetFileNameWithoutExtension: function (path){
-            path = System.IO.JsImplPath.GetFileName(path);
+            path = System.IO.Path.GetFileName(path);
             if (path == null){
                 return null;
             }
@@ -3964,49 +3960,38 @@ var System$IO$JsImplPath = {
             return path.substr(0, length);
         },
         GetFullPath: function (path){
-            var fullPathInternal = System.IO.JsImplPath.GetFullPathInternal(path);
-            return fullPathInternal;
-        },
-        GetFullPathInternal: function (path){
-            if (path == null){
-                throw $CreateException(new System.ArgumentNullException.ctor$$String("path"), new Error());
-            }
-            return System.IO.JsImplPath.NormalizePath(path, true);
+            return path;
         },
         GetInvalidFileNameChars: function (){
-            return System.IO.JsImplPath.InvalidFileNameChars;
+            return System.IO.Path.InvalidFileNameChars;
         },
         GetInvalidPathChars: function (){
-            return System.IO.JsImplPath.RealInvalidPathChars;
+            return System.IO.Path.RealInvalidPathChars;
         },
         GetPathRoot: function (path){
             if (path == null){
                 return null;
             }
-            path = System.IO.JsImplPath.FixupPath(path);
-            return path.substr(0, System.IO.JsImplPath.GetRootLength(path));
-        },
-        GetRandomFileName: function (){
-            throw $CreateException(new System.NotSupportedException.ctor(), new Error());
+            return path.substr(0, System.IO.Path.GetRootLength(path));
         },
         GetRootLength: function (path){
-            System.IO.JsImplPath.CheckInvalidPathChars(path);
+            System.IO.Path.CheckInvalidPathChars(path);
             var num = 0;
             var length = path.length;
-            if ((length >= 1) && System.IO.JsImplPath.IsDirectorySeparator(path.charAt(0))){
+            if ((length >= 1) && System.IO.Path.IsDirectorySeparator(path.charAt(0))){
                 num = 1;
-                if ((length >= 2) && System.IO.JsImplPath.IsDirectorySeparator(path.charAt(1))){
+                if ((length >= 2) && System.IO.Path.IsDirectorySeparator(path.charAt(1))){
                     num = 2;
                     var num3 = 2;
-                    while ((num < length) && (((path.charAt(num) != System.IO.JsImplPath.DirectorySeparatorChar) && (path.charAt(num) != System.IO.JsImplPath.AltDirectorySeparatorChar)) || (--num3 > 0))){
+                    while ((num < length) && (((path.charAt(num) != System.IO.Path.DirectorySeparatorChar) && (path.charAt(num) != System.IO.Path.AltDirectorySeparatorChar)) || (--num3 > 0))){
                         num++;
                     }
                 }
                 return num;
             }
-            if ((length >= 2) && (path.charAt(1) == System.IO.JsImplPath.VolumeSeparatorChar)){
+            if ((length >= 2) && (path.charAt(1) == System.IO.Path.VolumeSeparatorChar)){
                 num = 2;
-                if ((length >= 3) && System.IO.JsImplPath.IsDirectorySeparator(path.charAt(2))){
+                if ((length >= 3) && System.IO.Path.IsDirectorySeparator(path.charAt(2))){
                     num++;
                 }
             }
@@ -4020,14 +4005,14 @@ var System$IO$JsImplPath = {
         },
         HasExtension: function (path){
             if (path != null){
-                System.IO.JsImplPath.CheckInvalidPathChars(path);
+                System.IO.Path.CheckInvalidPathChars(path);
                 var length = path.length;
                 while (--length >= 0){
                     var ch = path.charAt(length);
                     if (ch == "."){
                         return (length != (path.length - 1));
                     }
-                    if (((ch == System.IO.JsImplPath.DirectorySeparatorChar) || (ch == System.IO.JsImplPath.AltDirectorySeparatorChar)) || (ch == System.IO.JsImplPath.VolumeSeparatorChar)){
+                    if (((ch == System.IO.Path.DirectorySeparatorChar) || (ch == System.IO.Path.AltDirectorySeparatorChar)) || (ch == System.IO.Path.VolumeSeparatorChar)){
                         break;
                     }
                 }
@@ -4038,12 +4023,12 @@ var System$IO$JsImplPath = {
             if ((path1 == null) || (path2 == null)){
                 throw $CreateException(new System.ArgumentNullException.ctor$$String((path1 == null) ? "path1" : "path2"), new Error());
             }
-            System.IO.JsImplPath.CheckInvalidPathChars(path1);
-            System.IO.JsImplPath.CheckInvalidPathChars(path2);
+            System.IO.Path.CheckInvalidPathChars(path1);
+            System.IO.Path.CheckInvalidPathChars(path2);
             if (path2.length == 0){
                 throw $CreateException(new System.ArgumentException.ctor$$String$$String(System.Environment.GetResourceString("Argument_PathEmpty"), "path2"), new Error());
             }
-            if (System.IO.JsImplPath.IsPathRooted(path2)){
+            if (System.IO.Path.IsPathRooted(path2)){
                 throw $CreateException(new System.ArgumentException.ctor$$String$$String(System.Environment.GetResourceString("Arg_Path2IsRooted"), "path2"), new Error());
             }
             var length = path1.length;
@@ -4051,32 +4036,26 @@ var System$IO$JsImplPath = {
                 return path2;
             }
             var ch = path1.charAt(length - 1);
-            if (((ch != System.IO.JsImplPath.DirectorySeparatorChar) && (ch != System.IO.JsImplPath.AltDirectorySeparatorChar)) && (ch != System.IO.JsImplPath.VolumeSeparatorChar)){
-                return (path1 + System.IO.JsImplPath.DirectorySeparatorChar + path2);
+            if (((ch != System.IO.Path.DirectorySeparatorChar) && (ch != System.IO.Path.AltDirectorySeparatorChar)) && (ch != System.IO.Path.VolumeSeparatorChar)){
+                return (path1 + System.IO.Path.DirectorySeparatorChar + path2);
             }
             return (path1 + path2);
         },
         IsDirectorySeparator: function (c){
-            if (c != System.IO.JsImplPath.DirectorySeparatorChar){
-                return (c == System.IO.JsImplPath.AltDirectorySeparatorChar);
+            if (c != System.IO.Path.DirectorySeparatorChar){
+                return (c == System.IO.Path.AltDirectorySeparatorChar);
             }
             return true;
         },
         IsPathRooted: function (path){
             if (path != null){
-                System.IO.JsImplPath.CheckInvalidPathChars(path);
+                System.IO.Path.CheckInvalidPathChars(path);
                 var length = path.length;
-                if (((length >= 1) && ((path.charAt(0) == System.IO.JsImplPath.DirectorySeparatorChar) || (path.charAt(0) == System.IO.JsImplPath.AltDirectorySeparatorChar))) || ((length >= 2) && (path.charAt(1) == System.IO.JsImplPath.VolumeSeparatorChar))){
+                if (((length >= 1) && ((path.charAt(0) == System.IO.Path.DirectorySeparatorChar) || (path.charAt(0) == System.IO.Path.AltDirectorySeparatorChar))) || ((length >= 2) && (path.charAt(1) == System.IO.Path.VolumeSeparatorChar))){
                     return true;
                 }
             }
             return false;
-        },
-        NormalizePath: function (path, fullCheck){
-            return System.IO.JsImplPath.NormalizePathSlow(path, fullCheck);
-        },
-        NormalizePathSlow: function (path, fullCheck){
-            return path;
         }
     },
     assemblyName: "SharpKit.ExtendedClr",
@@ -4089,7 +4068,7 @@ var System$IO$JsImplPath = {
     ctors: [],
     IsAbstract: true
 };
-JsTypes.push(System$IO$JsImplPath);
+JsTypes.push(System$IO$Path);
 var System$IO$StringWriter = {
     fullname: "System.IO.StringWriter",
     baseTypeName: "System.Object",

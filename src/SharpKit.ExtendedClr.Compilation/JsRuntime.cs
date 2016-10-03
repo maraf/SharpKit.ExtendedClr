@@ -22,5 +22,10 @@ namespace SharpKit.ExtendedClr.Compilation
         {
             JsCompiler.Compile();
         }
+
+        public JsObject<JsType> Types
+        {
+            get { return JsCompiler.Types; }
+        }
     }
 }

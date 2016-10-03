@@ -288,7 +288,7 @@ namespace SharpKit.ExtendedClr.Compilation
                 {
                     if (currentType.ns == null || currentType.ns == "")
                     {
-                        var jsCtor = window.As<JsObject>()[currentType.name].As<JsFunction>();
+                        var jsCtor = window[currentType.name].As<JsFunction>();
                         currentType.ctor = jsCtor;
                     }
                     if (currentType.ctor == null && currentType.ctors != null)
