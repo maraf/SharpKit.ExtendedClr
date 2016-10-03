@@ -7,7 +7,7 @@
     <ProjectGuid>{5843F8CC-011C-4181-8056-7CC72609FDB4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SharpKit.ExtendedClr.Compilation</RootNamespace>
+    <RootNamespace>SharpKit</RootNamespace>
     <AssemblyName>SharpKit.ExtendedClr.Compilation</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -41,17 +41,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IJsImplType.cs" />
-    <Compile Include="JsCompiler.cs" />
-    <Compile Include="JsCompilerGlobal.cs" />
-    <Compile Include="JsCompilerInternals.cs" />
-    <Compile Include="JsNamingHelper.cs" />
+    <Compile Include="System\ArrayExtensions.cs" />
+    <Compile Include="System\TypeExtensions.cs" />
+    <Compile Include="JavaScript\JsDelegateFunction.cs" />
+    <Compile Include="ExtendedClr\Compilation\JsCompiler.cs" />
+    <Compile Include="ExtendedClr\Compilation\JsCompilerGlobal.cs" />
+    <Compile Include="ExtendedClr\Compilation\JsCompilerInternals.cs" />
+    <Compile Include="ExtendedClr\Compilation\JsNamingHelper.cs" />
     <Compile Include="JsRuntime.cs" />
-    <Compile Include="JsType.cs" />
-    <Compile Include="JsTypeHelper.cs" />
+    <Compile Include="ExtendedClr\Compilation\JsType.cs" />
+    <Compile Include="ExtendedClr\Compilation\JsTypeHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\VersionInfo.cs" />
-    <Compile Include="Utils\Extensions.cs" />
+    <Compile Include="System\Reflection\PropertyInfoExtensions.cs" />
+    <Compile Include="System\StringExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <SkcPlugin Include="SharpKit.UnobtrusiveFeatures.Plugin, SharpKit.UnobtrusiveFeatures">

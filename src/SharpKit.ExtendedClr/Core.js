@@ -135,6 +135,22 @@ if (typeof(Uint8Array) == "undefined")
 
 if (typeof(JsTypes) == "undefined")
     var JsTypes = [];
+var SharpKit$Html4$HtmlDomEventHandler = {
+    fullname: "SharpKit.Html4.HtmlDomEventHandler",
+    Kind: "Delegate",
+    definition: {
+        ctor: function (obj, func){
+            System.MulticastDelegate.ctor.call(this, obj, func);
+        }
+    },
+    ctors: [{
+        name: "ctor",
+        parameters: ["System.Object", "System.IntPtr"]
+    }
+    ],
+    IsAbstract: false
+};
+JsTypes.push(SharpKit$Html4$HtmlDomEventHandler);
 var System$Client$VersionInfo = {
     fullname: "System.Client.VersionInfo",
     baseTypeName: "System.Object",
@@ -8053,7 +8069,7 @@ return null;
             throw $CreateException(new System.NotImplementedException.ctor(), new Error());
         },
         GetHashKey: function (key){
-            return JsCompiler.GetHashKey(key);
+            return SharpKit.ExtendedClr.Compilation.JsCompiler.GetHashKey(key);
         },
         DeleteMember: function (obj, name){
             delete obj[name];

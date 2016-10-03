@@ -3,7 +3,7 @@ using SharpKit.JavaScript;
 
 namespace SharpKit.ExtendedClr.Compilation
 {
-    [JsType(JsMode.Prototype, Name = "JsCompiler")]
+    [JsType(JsMode.Prototype)]
     public class JsCompiler : JsCompilerGlobal
     {
         private static JsArray<JsType> _NewJsTypes = new JsArray<JsType>();

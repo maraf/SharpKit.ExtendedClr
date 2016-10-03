@@ -5,7 +5,7 @@ using System.Text;
 using SharpKit.JavaScript;
 using SharpKit.ExtendedClr.Compilation;
 
-namespace SharpKit.Web
+namespace SharpKit.ExtendedClr.Compilation
 {
     /// <summary>
     /// The client side JavaScript .net runtime, loading and running js .net runtime modules and assembies

@@ -7,18 +7,6 @@ using SharpKit.ExtendedClr.Compilation;
 
 namespace SharpKit.ExtendedClr.Compilation
 {
-    [JsType(JsMode.Prototype, Name = "Function", Export = false)]
-    public class JsDelegateFunction : JsFunction
-    {
-        public JsFunction func { get; set; }
-        public object target { get; set; }
-        public bool isDelegate { get; set; }
-
-        public JsArray<JsDelegateFunction> delegates { get; set; }
-        public bool isMulticastDelegate { get; set; }
-    }
-
-
     [JsType(JsMode.Global, OrderInFile = -1)]
     public class JsCompilerGlobal : BrowserContext
     {
@@ -31,6 +19,7 @@ namespace SharpKit.ExtendedClr.Compilation
             {
                 if (delToRemove.isMulticastDelegate)
                     throw new NotImplementedException("Multicast to multicast delegate removal is not implemented yet");
+
                 var del = CreateMulticastDelegateFunction();
                 for (var i = 0; i < delOriginal.delegates.length; i++)
                 {
@@ -44,17 +33,21 @@ namespace SharpKit.ExtendedClr.Compilation
                 }
                 if (del.delegates == null)
                     return null;
+
                 //del.delegates = delOriginal.delegates.splice(0, 0);//clone
                 if (del.delegates.length == 1)
                     return del.delegates[0];
+
                 return del;
             }
             else
             {
                 if (delToRemove.isMulticastDelegate)
                     throw new NotImplementedException("single to multicast delegate removal is not supported");
+
                 if (delOriginal == delToRemove)
                     return null;
+
                 return delOriginal;
             }
         }
@@ -328,8 +321,8 @@ namespace SharpKit.ExtendedClr.Compilation
 
 
             Type type = Typeof(T);
-            IJsImplType jsType = type.As<IJsImplType>();
-            if (jsType != null && jsType._JsType != null && (jsType._JsType.Kind == JsTypeKind.Struct || (jsType._JsType.baseTypeName != null && jsType._JsType.baseTypeName.indexOf("ValueType") != -1)))
+            JsType jsType = type.GetJsType();
+            if (jsType != null && jsType != null && (jsType.Kind == JsTypeKind.Struct || (jsType.baseTypeName != null && jsType.baseTypeName.indexOf("ValueType") != -1)))
             {
                 switch (type.Name)
                 {
