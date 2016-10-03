@@ -3,8 +3,6 @@ using System.Client;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using Neptuo.Client.Clr;
-using SharpKit.JavaScript;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
@@ -37,7 +35,7 @@ using SharpKit.JavaScript;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion(VersionInfo.Version)]
-[assembly: AssemblyInformationalVersion(VersionInfo.Version)]
+[assembly: AssemblyInformationalVersion(VersionInfo.Version + VersionInfo.Preview)]
 [assembly: AssemblyFileVersion(VersionInfo.Version)]
 
 [assembly: JsExport(DefaultFilename = "Core.js", UseStrict = true)]

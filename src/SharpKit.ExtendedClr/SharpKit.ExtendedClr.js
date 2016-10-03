@@ -156,10 +156,11 @@ var System$Client$VersionInfo = {
     baseTypeName: "System.Object",
     staticDefinition: {
         cctor: function (){
-            System.Client.VersionInfo.Version = "4.5.23";
+            System.Client.VersionInfo.Version = "4.5.0";
+            System.Client.VersionInfo.Preview = "-beta1";
         },
         GetVersion: function (){
-            return new System.Version.ctor$$String("4.5.23");
+            return new System.Version.ctor$$String("4.5.0");
         }
     },
     assemblyName: "SharpKit.ExtendedClr",
@@ -6135,6 +6136,55 @@ var System$Random = {
     IsAbstract: false
 };
 JsTypes.push(System$Random);
+var System$Reflection$Assembly = {
+    fullname: "System.Reflection.Assembly",
+    baseTypeName: "System.Object",
+    assemblyName: "SharpKit.ExtendedClr",
+    Kind: "Class",
+    definition: {
+        ctor: function (name){
+            this.name = null;
+            System.Object.ctor.call(this);
+            this.name = name;
+        },
+        GetName: function (){
+            return this.name;
+        }
+    },
+    ctors: [{
+        name: "ctor",
+        parameters: ["System.Reflection.JsImplAssemblyName"]
+    }
+    ],
+    IsAbstract: false
+};
+JsTypes.push(System$Reflection$Assembly);
+var System$Reflection$AssemblyName = {
+    fullname: "System.Reflection.AssemblyName",
+    baseTypeName: "System.Object",
+    assemblyName: "SharpKit.ExtendedClr",
+    Kind: "Class",
+    definition: {
+        ctor: function (){
+            this._Name = null;
+            System.Object.ctor.call(this);
+        },
+        Name$$: "System.String",
+        get_Name: function (){
+            return this._Name;
+        },
+        set_Name: function (value){
+            this._Name = value;
+        }
+    },
+    ctors: [{
+        name: "ctor",
+        parameters: []
+    }
+    ],
+    IsAbstract: false
+};
+JsTypes.push(System$Reflection$AssemblyName);
 var System$Reflection$BindingFlags = {
     fullname: "System.Reflection.BindingFlags",
     staticDefinition: {
@@ -6746,7 +6796,7 @@ var System$Text$StringBuilder = {
                 this.array.insert(index, value);
             return this;
         },
-        ToString: function (){
+        toString: function (){
             return this.array.join("");
         },
         Length$$: "System.Int32",
@@ -7528,6 +7578,7 @@ var System$Type = {
             this._MethodsByName = null;
             this._Methods = null;
             this._Constructors = null;
+            this.assembly = null;
             this.verifiedCustomAttributesOnTypeAndMembers = false;
             this._GenericTypeDefinition = null;
             this._TypeArguments = null;
@@ -7773,6 +7824,16 @@ var System$Type = {
         AssemblyQualifiedName$$: "System.String",
         get_AssemblyQualifiedName: function (){
             return JsTypeHelper.GetAssemblyQualifiedName(this._JsType);
+        },
+        Assembly$$: "System.Reflection.JsImplAssembly",
+        get_Assembly: function (){
+            if (this.assembly == null)
+                this.assembly = new System.Reflection.Assembly.ctor((function (){
+                    var $v2 = new System.Reflection.AssemblyName.ctor();
+                    $v2.set_Name(this._JsType.assemblyName);
+                    return $v2;
+                }).call(this));
+            return this.assembly;
         },
         VerifyCustomAttributesOnTypeAndMembers: function (){
             if (this.verifiedCustomAttributesOnTypeAndMembers)

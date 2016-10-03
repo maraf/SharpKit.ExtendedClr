@@ -427,12 +427,26 @@ namespace System
 		{
 			get { return _JsType.fullname; }
 		}
-		public string AssemblyQualifiedName
+
+        public string AssemblyQualifiedName
 		{
 			get { return _JsType.GetAssemblyQualifiedName(); }
 		}
 
-		bool verifiedCustomAttributesOnTypeAndMembers;
+        private JsImplAssembly assembly;
+
+        internal JsImplAssembly Assembly
+        {
+            get
+            {
+                if (assembly == null)
+                    assembly = new JsImplAssembly(new JsImplAssemblyName() { Name = _JsType.assemblyName });
+
+                return assembly;
+            }
+        }
+
+        bool verifiedCustomAttributesOnTypeAndMembers;
 		internal void VerifyCustomAttributesOnTypeAndMembers()
 		{
 			if(verifiedCustomAttributesOnTypeAndMembers)

@@ -35,7 +35,7 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion(VersionInfo.Version)]
-[assembly: AssemblyInformationalVersion(VersionInfo.Version)]
+[assembly: AssemblyInformationalVersion(VersionInfo.Version + VersionInfo.Preview)]
 [assembly: AssemblyFileVersion(VersionInfo.Version)]
 
 [assembly: InternalsVisibleTo("SharpKit.ExtendedClr")]

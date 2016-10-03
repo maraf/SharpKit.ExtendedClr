@@ -788,7 +788,7 @@ var JsRuntime = function (){
 JsRuntime.Start = function (){
     Compile();
 };
-JsRuntime.prototype.get_Types = function (){
+JsRuntime.GetTypes = function (){
     return SharpKit.ExtendedClr.Compilation.JsCompiler.Types;
 };
 var JsTypeHelper = function (){
@@ -944,6 +944,7 @@ var SharpKit$ExtendedClr$Compilation$VersionInfo = {
     staticDefinition: {
         cctor: function (){
             SharpKit.ExtendedClr.Compilation.VersionInfo.Version = "1.0.0";
+            SharpKit.ExtendedClr.Compilation.VersionInfo.Preview = "-beta1";
         },
         GetVersion: function (){
             return new System.Version.ctor$$String("1.0.0");

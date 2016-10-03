@@ -107,6 +107,8 @@
     <Compile Include="System\Nullable.cs" />
     <Compile Include="System\Object.cs" />
     <Compile Include="System\Random.cs" />
+    <Compile Include="System\Reflection\Assembly.cs" />
+    <Compile Include="System\Reflection\AssemblyName.cs" />
     <Compile Include="System\Reflection\BindingFlags.cs" />
     <Compile Include="System\Reflection\MemberInfo.cs" />
     <Compile Include="System\Reflection\PropertyInfo.cs" />
