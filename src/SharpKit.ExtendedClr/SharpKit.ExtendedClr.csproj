@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D0EC4E12-633E-4DC7-A96E-C125A194BDFF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SharpKit</RootNamespace>
+    <AssemblyName>SharpKit.ExtendedClr</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\SharpKit.ExtendedClr.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="SharpKit.Javascript" />
+    <Reference Include="SharpKit.Html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\VersionInfo.cs" />
+    <Compile Include="System\Activator.cs" />
+    <Compile Include="System\Array.cs" />
+    <Compile Include="System\Attribute.cs" />
+    <Compile Include="System\Collections\ArrayList.cs" />
+    <Compile Include="System\Collections\Comparer.cs" />
+    <Compile Include="System\Collections\Generic\Comparer.cs" />
+    <Compile Include="System\Collections\Generic\Dictionary.cs" />
+    <Compile Include="System\Collections\Generic\HashSet.cs" />
+    <Compile Include="System\Collections\Generic\Interfaces.cs" />
+    <Compile Include="System\Collections\Generic\JsArrayEnumerator.cs" />
+    <Compile Include="System\Collections\Generic\KeyNotFoundException.cs" />
+    <Compile Include="System\Collections\Generic\KeyValuePair.cs" />
+    <Compile Include="System\Collections\Generic\List.cs" />
+    <Compile Include="System\Collections\Generic\Queue.cs" />
+    <Compile Include="System\Collections\Generic\Stack.cs" />
+    <Compile Include="System\Collections\IListEnumerator.cs" />
+    <Compile Include="System\Collections\Interfaces.cs" />
+    <Compile Include="System\Collections\ObjectModel\Collection.cs" />
+    <Compile Include="System\Collections\ObjectModel\ObservableCollection.cs" />
+    <Compile Include="System\Collections\ObjectModel\ReadOnlyCollection.cs" />
+    <Compile Include="System\Collections\ObjectModel\ReadOnlyObservableCollection.cs" />
+    <Compile Include="System\Collections\Specialized\Interfaces.cs" />
+    <Compile Include="System\Collections\Specialized\NotifyCollectionChangedEventArgs.cs" />
+    <Compile Include="System\ComponentModel\AsyncCompletedEventArgs.cs" />
+    <Compile Include="System\ComponentModel\CancelEventArgs.cs" />
+    <Compile Include="System\ComponentModel\ListSortDirection.cs" />
+    <Compile Include="System\ComponentModel\PropertyChangedEventArgs.cs" />
+    <Compile Include="System\ComponentModel\TypeDescriptor.cs" />
+    <Compile Include="System\DateTime.cs" />
+    <Compile Include="System\Delegate.cs" />
+    <Compile Include="System\Delegates.cs" />
+    <Compile Include="System\Diagnostics\Debugger.cs" />
+    <Compile Include="System\Diagnostics\Trace.cs" />
+    <Compile Include="System\Enum.cs" />
+    <Compile Include="System\Environment.cs" />
+    <Compile Include="System\EventArgs.cs" />
+    <Compile Include="System\Exception.cs" />
+    <Compile Include="System\Exceptions.cs" />
+    <Compile Include="System\IComparable.cs" />
+    <Compile Include="System\Guid.cs" />
+    <Compile Include="System\ICloneable.cs" />
+    <Compile Include="System\IDisposable.cs" />
+    <Compile Include="System\Int64.cs" />
+    <Compile Include="System\Interfaces.cs" />
+    <Compile Include="System\IO\Path.cs" />
+    <Compile Include="System\IO\StringWriter.cs" />
+    <Compile Include="System\JsNumberEx.cs" />
+    <Compile Include="System\Linq\Enumerable.Iterator.cs" />
+    <Compile Include="System\Linq\Enumerable.WhereArrayIterator.cs" />
+    <Compile Include="System\Linq\Enumerable.WhereEnumerableIterator.cs" />
+    <Compile Include="System\Linq\Enumerable.WhereListIterator.cs" />
+    <Compile Include="System\Linq\Enumerable.WhereSelectArrayIterator.cs" />
+    <Compile Include="System\Linq\Enumerable.WhereSelectEnumerableIterator.cs" />
+    <Compile Include="System\Linq\Enumerable.WhereSelectListIterator.cs" />
+    <Compile Include="System\Linq\Enumerable.SelectManyArrayIterator.cs" />
+    <Compile Include="System\Linq\Enumerable.SelectManyEnumerableIterator.cs" />
+    <Compile Include="System\Linq\Enumerable.SelectManyListIterator.cs" />
+    <Compile Include="System\Linq\Error.cs" />
+    <Compile Include="System\Linq\IGrouping.cs" />
+    <Compile Include="System\Linq\IOrderedEnumerable.cs" />
+    <Compile Include="System\Linq\Linq.cs" />
+    <Compile Include="System\Linq\LinqIterators.cs" />
+    <Compile Include="System\Linq\OrderedEnumerable.cs" />
+    <Compile Include="System\Math.cs" />
+    <Compile Include="System\Nullable.cs" />
+    <Compile Include="System\Object.cs" />
+    <Compile Include="System\Random.cs" />
+    <Compile Include="System\Reflection\BindingFlags.cs" />
+    <Compile Include="System\Reflection\MemberInfo.cs" />
+    <Compile Include="System\Reflection\PropertyInfo.cs" />
+    <Compile Include="System\Runtime\Serialization\IExtensibleDataObject.cs" />
+    <Compile Include="System\Runtime\Serialization\ISerializable.cs" />
+    <Compile Include="System\String.cs" />
+    <Compile Include="System\StringEnumerator.cs" />
+    <Compile Include="System\Text\StringBuilder.cs" />
+    <Compile Include="System\TimeSpan.cs" />
+    <Compile Include="System\Tuple.cs" />
+    <Compile Include="System\Type.cs" />
+    <Compile Include="System\UInt32.cs" />
+    <Compile Include="System\Uri.cs" />
+    <Compile Include="System\ValueType.cs" />
+    <Compile Include="JavaScript\Js.cs" />
+    <Compile Include="JavaScript\ClrSerializer.cs" />
+    <Compile Include="JavaScript\JsExtendedArray.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CoreEx.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <SkcPlugin Include="SharpKit.UnobtrusiveFeatures.Plugin, SharpKit.UnobtrusiveFeatures">
+      <InProject>false</InProject>
+    </SkcPlugin>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SharpKit.ExtendedClr.Compilation\SharpKit.ExtendedClr.Compilation.csproj">
+      <Project>{5843f8cc-011c-4181-8056-7cc72609fdb4}</Project>
+      <Name>SharpKit.ExtendedClr.Compilation</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildToolsPath)\SharpKit\5\SharpKit.Build.targets" />
+</Project>
